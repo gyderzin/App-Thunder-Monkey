@@ -155,19 +155,55 @@ class _AgendamentosState extends State<Agendamentos> {
                                           ),
                                         ),
                                         Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
-                                            Expanded(
-                                              child: ListView.builder(
-                                                itemCount:
-                                                    circuitoAgendamento.length,
-                                                itemBuilder: (context, index) {
-                                                  return ListTile(
-                                                    title: Text('oi'),
-                                                  );
-                                                },
-                                              ),
-                                            )
+                                            Padding(
+                                                padding: EdgeInsets.all(10),
+                                                child: Text(agendamento['intervalo_dias'], style: TextStyle(
+                                                    color: Colors.black
+                                                ),)
+                                            ),
+                                            Padding(
+                                                padding: EdgeInsets.all(10),
+                                                child: Text(agendamento['hora'], style: TextStyle(
+                                                    color: Colors.black
+                                                ),)
+                                            ),
                                           ],
+                                        ),
+                                        Expanded(
+                                          child: ListView.builder(
+                                            itemCount:
+                                                circuitoAgendamento.length,
+                                            itemBuilder: (context, index) {
+                                              var circuito = circuitoAgendamento[index];
+                                              // return ListTile(
+                                              //   title: Text(
+                                              //     circuito['nome'],
+                                              //     style: TextStyle(fontSize: 12),
+                                              //   ),
+                                              //   subtitle: Column(
+                                              //     crossAxisAlignment:
+                                              //     CrossAxisAlignment.start,
+                                              //     children: [
+                                              //       Text(
+                                              //           "Circuito ${circuito['numero_circuito']}"),
+                                              //       Text(circuitosAgendamento[index]
+                                              //       ['estado'] ==
+                                              //           true
+                                              //           ? 'Ligar'
+                                              //           : 'Desligar'),
+                                              //     ],
+                                              //   ),
+                                              //   leading: Icon(
+                                              //     IconData(circuito['icon'],
+                                              //         fontFamily:
+                                              //         'MaterialIcons'),
+                                              //     color: Colors.black,
+                                              //   ),
+                                              // );
+                                            },
+                                          ),
                                         )
                                       ],
                                     ),
