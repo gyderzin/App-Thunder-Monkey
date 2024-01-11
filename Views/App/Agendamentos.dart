@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thunder_monkey_app/Control/AgendamentoControler.dart';
 import 'package:thunder_monkey_app/Control/CircuitoControler.dart';
 import 'package:thunder_monkey_app/Models/Circuito.dart';
+import 'package:thunder_monkey_app/Views/Dialogs/Agendamento/DialogNovoAgendamento.dart';
 
 class Agendamentos extends StatefulWidget {
   const Agendamentos({super.key});
@@ -93,13 +94,18 @@ class _AgendamentosState extends State<Agendamentos> {
                           "Agendamentos",
                           style: TextStyle(
                             fontSize: 25,
-                          ),
+                          )
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.all(20),
                         child: FloatingActionButton(
-                          onPressed: () {},
+                          onPressed: () => showDialog<String>(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  DialogNovoAgendamento(
+
+                                  )),
                           backgroundColor: Colors.white,
                           mini: true,
                           shape: RoundedRectangleBorder(
@@ -112,15 +118,15 @@ class _AgendamentosState extends State<Agendamentos> {
                   ),
                   Expanded(
                     child: Container(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(25),
                         child: lista.isNotEmpty
                             ? GridView.builder(
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 1,
-                                  mainAxisExtent: 150,
+                                  mainAxisExtent: 300,
                                   crossAxisSpacing: 10,
-                                  mainAxisSpacing: 10,
+                                  mainAxisSpacing: 20,
                                 ),
                                 itemCount: lista.length,
                                 itemBuilder: (context, index) {
@@ -177,31 +183,31 @@ class _AgendamentosState extends State<Agendamentos> {
                                                 circuitoAgendamento.length,
                                             itemBuilder: (context, index) {
                                               var circuito = circuitoAgendamento[index];
-                                              // return ListTile(
-                                              //   title: Text(
-                                              //     circuito['nome'],
-                                              //     style: TextStyle(fontSize: 12),
-                                              //   ),
-                                              //   subtitle: Column(
-                                              //     crossAxisAlignment:
-                                              //     CrossAxisAlignment.start,
-                                              //     children: [
-                                              //       Text(
-                                              //           "Circuito ${circuito['numero_circuito']}"),
-                                              //       Text(circuitosAgendamento[index]
-                                              //       ['estado'] ==
-                                              //           true
-                                              //           ? 'Ligar'
-                                              //           : 'Desligar'),
-                                              //     ],
-                                              //   ),
-                                              //   leading: Icon(
-                                              //     IconData(circuito['icon'],
-                                              //         fontFamily:
-                                              //         'MaterialIcons'),
-                                              //     color: Colors.black,
-                                              //   ),
-                                              // );
+                                              return ListTile(
+                                                title: Text(
+                                                  circuito['nome'],
+                                                  style: TextStyle(fontSize: 12),
+                                                ),
+                                                subtitle: Column(
+                                                  crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                        "Circuito ${circuito['numero_circuito']}"),
+                                                    Text(circuitosAgendamento[index]
+                                                    ['estado'] ==
+                                                        true
+                                                        ? 'Ligar'
+                                                        : 'Desligar'),
+                                                  ],
+                                                ),
+                                                leading: Icon(
+                                                  IconData(circuito['icon'],
+                                                      fontFamily:
+                                                      'MaterialIcons'),
+                                                  color: Colors.black,
+                                                ),
+                                              );
                                             },
                                           ),
                                         )

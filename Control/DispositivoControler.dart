@@ -3,7 +3,7 @@ import 'dart:ffi';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:thunder_monkey_app/Models/Dispositivo.dart';
-String urlBase = "http://172.16.0.90/API-ThuderMonkey/public/api";
+String urlBase = "http://192.168.100.89/API-ThuderMonkey/public/api";
 class DispositivoControler {
   // Método para verificar o login usando shared_preferences
   static Future<bool> verificarLogin() async {
