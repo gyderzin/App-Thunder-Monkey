@@ -60,6 +60,10 @@ class _AgendamentosState extends State<Agendamentos> {
     }
   }
 
+  Future novoAgendamento(nome, hora, dias, circuitos) async {
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -104,7 +108,7 @@ class _AgendamentosState extends State<Agendamentos> {
                               context: context,
                               builder: (BuildContext context) =>
                                   DialogNovoAgendamento(
-
+                                    novoAgendamento: novoAgendamento,
                                   )),
                           backgroundColor: Colors.white,
                           mini: true,

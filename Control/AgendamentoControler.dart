@@ -10,4 +10,17 @@ class AgendamentoControler {
     return response.body;
   }
 
+  static Future adicionar_agendamento(idDp,nome, hora, dias, circuitos) async {
+    await http.post(
+      Uri.parse("$urlBase/agendamento/novo_agendamento"),
+      body: {
+        'id_dp': idDp,
+        'nome': nome,
+        'hora': hora,
+        'intervalo_dias': dias,
+        'circuitos': circuitos
+      }
+    );
+  }
+
 }
