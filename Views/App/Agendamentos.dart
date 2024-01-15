@@ -7,6 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thunder_monkey_app/Control/AgendamentoControler.dart';
 import 'package:thunder_monkey_app/Control/CircuitoControler.dart';
 import 'package:thunder_monkey_app/Models/Circuito.dart';
+import 'package:thunder_monkey_app/Views/Dialogs/Agendamento/DialogInfoAgendamento.dart';
 import 'package:thunder_monkey_app/Views/Dialogs/Agendamento/DialogNovoAgendamento.dart';
 
 class Agendamentos extends StatefulWidget {
@@ -63,23 +64,24 @@ class _AgendamentosState extends State<Agendamentos> {
   Future novoAgendamento(nome, hora, dias, circuitos) async {
     var horaEdit = hora.hour + 1;
     var horaSend = '$horaEdit:${hora.minute.toString().padLeft(2, '0')}';
-    var diasSend = dias.join(',');
+    var diasSend = dias.join(', ');
 
     var circuitosSend = [];
 
-    for(var circuito in circuitos) {
+    for (var circuito in circuitos) {
       circuitosSend.add({
         'circuito': circuito['numero_circuito'],
         'estado': circuito['estado']
       });
     }
 
-    await AgendamentoControler.adicionar_agendamento(idDp, nome, horaSend, diasSend, circuitosSend).then((value) => {
-      setState(() {
-        agendamentosFuture = recuperarAgendamentos();
-      })
-    });
-
+    AgendamentoControler.adicionar_agendamento(
+            idDp, nome, horaSend, diasSend, circuitosSend)
+        .then((value) => {
+              setState(() {
+                agendamentosFuture = recuperarAgendamentos();
+              })
+            });
   }
 
   @override
@@ -112,12 +114,10 @@ class _AgendamentosState extends State<Agendamentos> {
                       ),
                       Padding(
                         padding: EdgeInsets.fromLTRB(45, 20, 0, 20),
-                        child: Text(
-                          "Agendamentos",
-                          style: TextStyle(
-                            fontSize: 25,
-                          )
-                        ),
+                        child: Text("Agendamentos",
+                            style: TextStyle(
+                              fontSize: 25,
+                            )),
                       ),
                       Padding(
                         padding: EdgeInsets.all(20),
@@ -183,20 +183,23 @@ class _AgendamentosState extends State<Agendamentos> {
                                           ),
                                         ),
                                         Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
                                           children: [
                                             Padding(
                                                 padding: EdgeInsets.all(10),
-                                                child: Text(agendamento['intervalo_dias'], style: TextStyle(
-                                                    color: Colors.black
-                                                ),)
-                                            ),
+                                                child: Text(
+                                                  agendamento['intervalo_dias'],
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                )),
                                             Padding(
                                                 padding: EdgeInsets.all(10),
-                                                child: Text(agendamento['hora'], style: TextStyle(
-                                                    color: Colors.black
-                                                ),)
-                                            ),
+                                                child: Text(
+                                                  agendamento['hora'],
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                )),
                                           ],
                                         ),
                                         Expanded(
@@ -204,21 +207,24 @@ class _AgendamentosState extends State<Agendamentos> {
                                             itemCount:
                                                 circuitoAgendamento.length,
                                             itemBuilder: (context, index) {
-                                              var circuito = circuitoAgendamento[index];
+                                              var circuito =
+                                                  circuitoAgendamento[index];
                                               return ListTile(
                                                 title: Text(
                                                   circuito['nome'],
-                                                  style: TextStyle(fontSize: 12),
+                                                  style:
+                                                      TextStyle(fontSize: 12),
                                                 ),
                                                 subtitle: Column(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
                                                         "Circuito ${circuito['numero_circuito']}"),
-                                                    Text(circuitosAgendamento[index]
-                                                    ['estado'] ==
-                                                        true
+                                                    Text(circuitosAgendamento[
+                                                                    index]
+                                                                ['estado'] ==
+                                                            true
                                                         ? 'Ligar'
                                                         : 'Desligar'),
                                                   ],
@@ -226,11 +232,24 @@ class _AgendamentosState extends State<Agendamentos> {
                                                 leading: Icon(
                                                   IconData(circuito['icon'],
                                                       fontFamily:
-                                                      'MaterialIcons'),
+                                                          'MaterialIcons'),
                                                   color: Colors.black,
                                                 ),
                                               );
                                             },
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.all(5),
+                                          child: IconButton(
+                                            onPressed: () => showDialog<String>(
+                                                context: context,
+                                                builder: (BuildContext
+                                                        context) =>
+                                                    DialogInfoAgendamento(agendamento: agendamento, circuitos: circuitos, circuitosAgendamento: circuitosAgendamento, deletarAgendamento: (){}, editarAgendamento: (){} ,)
+                                            ),
+                                            icon: Icon(Icons.info),
+                                            color: Colors.lightBlue,
                                           ),
                                         )
                                       ],

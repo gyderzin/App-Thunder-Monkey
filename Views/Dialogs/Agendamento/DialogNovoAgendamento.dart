@@ -582,13 +582,12 @@ class _DialogNovoAgendamentoState extends State<DialogNovoAgendamento> {
                                                       }
                                                       if (diasSend.isNotEmpty) {
                                                         novoAgendamento(
-                                                          _nomeAgendamento.text,
-                                                          _time,
-                                                          diasSend,
-                                                          circuitosAdd
-                                                        ).then(() => {
-                                                          Navigator.pop(context);
-                                                        });
+                                                            _nomeAgendamento
+                                                                .text,
+                                                            _time,
+                                                            diasSend,
+                                                            circuitosAdd);
+                                                        Navigator.pop(context);
                                                       }
                                                     }
                                                   },
