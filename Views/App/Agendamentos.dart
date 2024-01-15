@@ -84,6 +84,29 @@ class _AgendamentosState extends State<Agendamentos> {
             });
   }
 
+  Future editarAgendamento(idAgendamento, nome, hora, dias, circuitos) async {
+    var horaEdit = hora.hour + 1;
+    var horaSend = '$horaEdit:${hora.minute.toString().padLeft(2, '0')}';
+    var diasSend = dias.join(', ');
+
+    var circuitosSend = [];
+
+    for (var circuito in circuitos) {
+      circuitosSend.add({
+        'circuito': circuito['numero_circuito'],
+        'estado': circuito['estado']
+      });
+    }
+    AgendamentoControler.editar_agendamento(
+        idAgendamento, nome, horaSend, diasSend, circuitosSend)
+        .then((value) => {
+      setState(() {
+        agendamentosFuture = recuperarAgendamentos();
+      })
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -146,7 +169,7 @@ class _AgendamentosState extends State<Agendamentos> {
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 1,
-                                  mainAxisExtent: 300,
+                                  mainAxisExtent: 330,
                                   crossAxisSpacing: 10,
                                   mainAxisSpacing: 20,
                                 ),
@@ -182,25 +205,63 @@ class _AgendamentosState extends State<Agendamentos> {
                                                 fontSize: 18),
                                           ),
                                         ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceAround,
-                                          children: [
-                                            Padding(
-                                                padding: EdgeInsets.all(10),
-                                                child: Text(
-                                                  agendamento['intervalo_dias'],
-                                                  style: TextStyle(
-                                                      color: Colors.black),
-                                                )),
-                                            Padding(
-                                                padding: EdgeInsets.all(10),
-                                                child: Text(
-                                                  agendamento['hora'],
-                                                  style: TextStyle(
-                                                      color: Colors.black),
-                                                )),
-                                          ],
+                                        Padding(
+                                          padding: EdgeInsets.fromLTRB(5, 0, 5, 10),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Column(
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                                    child: Text(
+                                                      'Dias de execução',
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 15,
+                                                          fontFamily: 'Roboto'
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                                    child: Text(
+                                                      agendamento['intervalo_dias'] == 'seg, ter, qua, qui, sex, sab, dom' ? 'Todos os dias': agendamento['intervalo_dias'],
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 12
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Column(
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                                    child: Text(
+                                                      'Hora de execução',
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 15,
+                                                          fontFamily: 'Roboto'
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                                    child: Text(
+                                                      agendamento['hora'],
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 13
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
                                         ),
                                         Expanded(
                                           child: ListView.builder(
@@ -246,7 +307,7 @@ class _AgendamentosState extends State<Agendamentos> {
                                                 context: context,
                                                 builder: (BuildContext
                                                         context) =>
-                                                    DialogInfoAgendamento(agendamento: agendamento, circuitos: circuitos, circuitosAgendamento: circuitosAgendamento, deletarAgendamento: (){}, editarAgendamento: (){} ,)
+                                                    DialogInfoAgendamento(agendamento: agendamento, circuitos: circuitoAgendamento, circuitosAgendamento: circuitosAgendamento, deletarAgendamento: (){}, editarAgendamento: editarAgendamento ,)
                                             ),
                                             icon: Icon(Icons.info),
                                             color: Colors.lightBlue,

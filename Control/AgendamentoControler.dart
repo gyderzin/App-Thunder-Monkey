@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-String urlBase = "http://192.168.100.89/API-ThuderMonkey/public/api";
+String urlBase = "http://172.16.1.18/API-ThuderMonkey/public/api";
 
 class AgendamentoControler {
 
@@ -13,7 +13,7 @@ class AgendamentoControler {
   }
 
   static Future adicionar_agendamento(idDp,nome, hora, dias, circuitos) async {
-     http.Response response = await http.post(
+     await http.post(
       Uri.parse("$urlBase/agendamento/novo_agendamento"),
       body: {
         'id_dp': idDp.toString(),
@@ -23,7 +23,21 @@ class AgendamentoControler {
         'circuitos': jsonEncode(circuitos)
       }
     );
-      print(response.body);
+
+  }
+
+  static Future editar_agendamento(idAgendamento, nome, hora, dias, circuitos) async {
+    http.Response response = await http.put(
+      Uri.parse("$urlBase/agendamento/atualizar_agendamentos"),
+      body: {
+        'id': idAgendamento.toString(),
+        'nome': nome,
+        'hora': hora,
+        'intervalo_dias': dias,
+        'circuitos': jsonEncode(circuitos)
+      }
+    );
+
   }
 
 }

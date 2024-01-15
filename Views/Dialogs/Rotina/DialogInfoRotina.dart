@@ -12,11 +12,18 @@ class DialogInfoRotina extends StatefulWidget {
       {super.key,
       required this.circuitos,
       required this.rotina,
-      required this.circuitosRotina, required this.deletarRotina, required this.editarRotina});
+      required this.circuitosRotina,
+      required this.deletarRotina,
+      required this.editarRotina});
 
   @override
   State<DialogInfoRotina> createState() => _DialogInfoRotinaState(
-      circuitos: circuitos, rotina: rotina, circuitosRotina: circuitosRotina, deletarRotina: deletarRotina, editarRotina: editarRotina, );
+        circuitos: circuitos,
+        rotina: rotina,
+        circuitosRotina: circuitosRotina,
+        deletarRotina: deletarRotina,
+        editarRotina: editarRotina,
+      );
 }
 
 class _DialogInfoRotinaState extends State<DialogInfoRotina> {
@@ -26,10 +33,13 @@ class _DialogInfoRotinaState extends State<DialogInfoRotina> {
   final Function deletarRotina;
   final Function editarRotina;
 
-  _DialogInfoRotinaState(
-      {required this.circuitos,
-      required this.rotina,
-      required this.circuitosRotina, required this.deletarRotina, required this.editarRotina,});
+  _DialogInfoRotinaState({
+    required this.circuitos,
+    required this.rotina,
+    required this.circuitosRotina,
+    required this.deletarRotina,
+    required this.editarRotina,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +85,7 @@ class _DialogInfoRotinaState extends State<DialogInfoRotina> {
                   }),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -85,10 +95,7 @@ class _DialogInfoRotinaState extends State<DialogInfoRotina> {
                       showDialog<String>(
                           context: context,
                           builder: (BuildContext context) => DialogEditRotina(
-                              editarRotina: editarRotina,
-                              rotina: rotina
-                          )
-                      );
+                              editarRotina: editarRotina, rotina: rotina));
                     },
                     child: const Icon(
                       Icons.edit,
@@ -106,7 +113,8 @@ class _DialogInfoRotinaState extends State<DialogInfoRotina> {
                                     "Deseja deletar a rotina '${rotina['nome']}'?"),
                                 actions: <Widget>[
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       TextButton(
                                           onPressed: () {
@@ -114,11 +122,17 @@ class _DialogInfoRotinaState extends State<DialogInfoRotina> {
                                           },
                                           child: const Row(
                                             children: [
-                                              Icon(Icons.arrow_back, color: Colors.redAccent,),
-                                              Text("Cancelar", style: TextStyle(color: Colors.redAccent),)
+                                              Icon(
+                                                Icons.arrow_back,
+                                                color: Colors.redAccent,
+                                              ),
+                                              Text(
+                                                "Cancelar",
+                                                style: TextStyle(
+                                                    color: Colors.redAccent),
+                                              )
                                             ],
-                                          )
-                                      ),
+                                          )),
                                       TextButton(
                                           onPressed: () {
                                             deletarRotina(rotina['id']);
@@ -126,11 +140,16 @@ class _DialogInfoRotinaState extends State<DialogInfoRotina> {
                                           },
                                           child: const Row(
                                             children: [
-                                              Text("Deletar", style: TextStyle(color: Colors.blueAccent)),
-                                              Icon(Icons.delete, color: Colors.blueAccent,),
+                                              Text("Deletar",
+                                                  style: TextStyle(
+                                                      color:
+                                                          Colors.blueAccent)),
+                                              Icon(
+                                                Icons.delete,
+                                                color: Colors.blueAccent,
+                                              ),
                                             ],
-                                          )
-                                      )
+                                          ))
                                     ],
                                   )
                                 ],
@@ -142,7 +161,7 @@ class _DialogInfoRotinaState extends State<DialogInfoRotina> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(10),
               child: Row(children: [
                 TextButton(
                   onPressed: () {
