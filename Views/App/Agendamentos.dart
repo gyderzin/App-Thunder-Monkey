@@ -61,6 +61,24 @@ class _AgendamentosState extends State<Agendamentos> {
   }
 
   Future novoAgendamento(nome, hora, dias, circuitos) async {
+    var horaEdit = hora.hour + 1;
+    var horaSend = '$horaEdit:${hora.minute.toString().padLeft(2, '0')}';
+    var diasSend = dias.join(',');
+
+    var circuitosSend = [];
+
+    for(var circuito in circuitos) {
+      circuitosSend.add({
+        'circuito': circuito['numero_circuito'],
+        'estado': circuito['estado']
+      });
+    }
+
+    await AgendamentoControler.adicionar_agendamento(idDp, nome, horaSend, diasSend, circuitosSend).then((value) => {
+      setState(() {
+        agendamentosFuture = recuperarAgendamentos();
+      })
+    });
 
   }
 

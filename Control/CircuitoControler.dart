@@ -6,7 +6,7 @@ import 'package:thunder_monkey_app/Control/DispositivoControler.dart';
 import 'package:thunder_monkey_app/Models/Rotinas.dart';
 import '../Models/Circuito.dart';
 
-String urlBase = "http://192.168.100.89/API-ThuderMonkey/public/api";
+String urlBase = "http://172.16.1.18/API-ThuderMonkey/public/api";
 
 class CircuitoControler {
   static Future<void> enviarCircuitos(circuitos, idDp) async {
@@ -26,6 +26,7 @@ class CircuitoControler {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode(circuitosSend),
     );
+  print(response.body);
   }
 
   static Future<void> novoCircuito(List<Map<String, dynamic>> circuitos) async {
@@ -41,6 +42,7 @@ class CircuitoControler {
     http.Response response = await http
         .get(Uri.parse("$urlBase/circuito/recuperar_circuitos/$idDp/app"));
     var dadosJson = jsonDecode(response.body);
+
     List<CircuitoDB> circuitos =
         List<CircuitoDB>.from(dadosJson.map((circuito) {
       return CircuitoDB(
