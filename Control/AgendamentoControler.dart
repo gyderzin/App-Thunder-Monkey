@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-String urlBase = "http://172.16.1.18/API-ThuderMonkey/public/api";
+String urlBase = "http://192.168.100.89/API-ThuderMonkey/public/api";
 
 class AgendamentoControler {
 
@@ -37,7 +37,15 @@ class AgendamentoControler {
         'circuitos': jsonEncode(circuitos)
       }
     );
+  }
 
+  static Future excluir_agendamento (id) async {
+    await http.delete(
+      Uri.parse("$urlBase/agendamento/deletar_agendamento"),
+      body: {
+        'id': id.toString()
+      }
+    );
   }
 
 }
