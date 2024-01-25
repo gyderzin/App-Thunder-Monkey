@@ -154,58 +154,7 @@ class _DialogInfoAgendamentoState extends State<DialogInfoAgendamento> {
                       },
                       icon: Icon(Icons.edit, color: Colors.lightBlue)),
                   IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        showDialog<String>(
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                              backgroundColor: Colors.white,
-                              title: Text(
-                                  "Deseja deletar '${agendamento['nome']}'?"),
-                              actions: <Widget>[
-                                Row(
-                                  mainAxisAlignment:
-                                  MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Row(
-                                          children: [
-                                            Icon(
-                                              Icons.arrow_back,
-                                              color: Colors.redAccent,
-                                            ),
-                                            Text(
-                                              "Cancelar",
-                                              style: TextStyle(
-                                                  color: Colors.redAccent),
-                                            )
-                                          ],
-                                        )),
-                                    TextButton(
-                                        onPressed: () {
-                                          deletarAgendamento(agendamento['id']);
-                                          Navigator.pop(context);
-                                        },
-                                        child: const Row(
-                                          children: [
-                                            Text("Deletar",
-                                                style: TextStyle(
-                                                    color:
-                                                    Colors.blueAccent)),
-                                            Icon(
-                                              Icons.delete,
-                                              color: Colors.blueAccent,
-                                            ),
-                                          ],
-                                        ))
-                                  ],
-                                )
-                              ],
-                            ));
-                      },
+                      onPressed: () {},
                       icon: Icon(Icons.delete, color: Colors.redAccent))
                 ],
               ),

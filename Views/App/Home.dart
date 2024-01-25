@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thunder_monkey_app/Views/App/Agendamentos.dart';
 import 'package:thunder_monkey_app/Views/App/ControlarCircuitos.dart';
+import 'package:thunder_monkey_app/Views/App/Controles.dart';
 import 'package:thunder_monkey_app/Views/App/Rotinas.dart';
 
 class Home extends StatefulWidget {
@@ -28,8 +29,8 @@ class _HomeState extends State<Home> {
                 ControlarCircuitos(),
                 Rotinas(),
                 Agendamentos(),
+                Controles(),
                 Icon(Icons.directions_transit),
-                Icon(Icons.directions_bike),
               ],
             ),
           ),

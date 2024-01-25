@@ -62,7 +62,8 @@ class _AgendamentosState extends State<Agendamentos> {
   }
 
   Future novoAgendamento(nome, hora, dias, circuitos) async {
-    var horaSend = '${hora.hour}:${hora.minute.toString().padLeft(2, '0')}';
+    var horaEdit = hora.hour + 1;
+    var horaSend = '$horaEdit:${hora.minute.toString().padLeft(2, '0')}';
     var diasSend = dias.join(', ');
 
     var circuitosSend = [];
@@ -84,7 +85,8 @@ class _AgendamentosState extends State<Agendamentos> {
   }
 
   Future editarAgendamento(idAgendamento, nome, hora, dias, circuitos) async {
-    var horaSend = '${hora.hour}:${hora.minute.toString().padLeft(2, '0')}';
+    var horaEdit = hora.hour + 1;
+    var horaSend = '$horaEdit:${hora.minute.toString().padLeft(2, '0')}';
     var diasSend = dias.join(', ');
 
     var circuitosSend = [];
@@ -102,14 +104,7 @@ class _AgendamentosState extends State<Agendamentos> {
         agendamentosFuture = recuperarAgendamentos();
       })
     });
-  }
 
-  Future excluir_agendamento(id) async {
-    AgendamentoControler.excluir_agendamento(id).then((value) => {
-      setState(() {
-        agendamentosFuture = recuperarAgendamentos();
-      })
-    });
   }
 
   @override
@@ -312,7 +307,7 @@ class _AgendamentosState extends State<Agendamentos> {
                                                 context: context,
                                                 builder: (BuildContext
                                                         context) =>
-                                                    DialogInfoAgendamento(agendamento: agendamento, circuitos: circuitoAgendamento, circuitosAgendamento: circuitosAgendamento, deletarAgendamento: excluir_agendamento, editarAgendamento: editarAgendamento ,)
+                                                    DialogInfoAgendamento(agendamento: agendamento, circuitos: circuitoAgendamento, circuitosAgendamento: circuitosAgendamento, deletarAgendamento: (){}, editarAgendamento: editarAgendamento ,)
                                             ),
                                             icon: Icon(Icons.info),
                                             color: Colors.lightBlue,
