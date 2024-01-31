@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
                 Rotinas(),
                 Agendamentos(),
                 Controles(),
-                Icon(Icons.directions_transit),
+
               ],
             ),
           ),
@@ -46,7 +46,6 @@ class _HomeState extends State<Home> {
                 Tab(icon: Icon(Icons.repeat)),
                 Tab(icon: Icon(Icons.access_time_filled)),
                 Tab(icon: Icon(Icons.settings_remote)),
-                Tab(icon: Icon(Icons.settings)),
               ],
             ),
           )

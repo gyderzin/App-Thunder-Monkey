@@ -62,8 +62,7 @@ class _AgendamentosState extends State<Agendamentos> {
   }
 
   Future novoAgendamento(nome, hora, dias, circuitos) async {
-    var horaEdit = hora.hour + 1;
-    var horaSend = '$horaEdit:${hora.minute.toString().padLeft(2, '0')}';
+    var horaSend = '${hora.hour}:${hora.minute.toString().padLeft(2, '0')}';
     var diasSend = dias.join(', ');
 
     var circuitosSend = [];
@@ -85,8 +84,7 @@ class _AgendamentosState extends State<Agendamentos> {
   }
 
   Future editarAgendamento(idAgendamento, nome, hora, dias, circuitos) async {
-    var horaEdit = hora.hour + 1;
-    var horaSend = '$horaEdit:${hora.minute.toString().padLeft(2, '0')}';
+    var horaSend = '${hora.hour}:${hora.minute.toString().padLeft(2, '0')}';
     var diasSend = dias.join(', ');
 
     var circuitosSend = [];
