@@ -73,8 +73,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.all(20),
                           child: IconButton(
                               onPressed: () {
-                                ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                                controleState['comando'] = controleSamsung.power;
+                                ControleTV controleTV = ControleTV(marca: controle['marca']);
+                                controleState['comando'] = controleTV.power;
                                 ControlesControler.atualizarTVControll(controle['id'], controleState);
                               },
                               icon: Icon(
@@ -94,8 +94,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                               child: IconButton(
                                 onPressed: () {
-                                  ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                                  controleState['comando'] = controleSamsung.vol_mais;
+                                  ControleTV controleTV = ControleTV(marca: controle['marca']);
+                                  controleState['comando'] = controleTV.vol_mais;
                                   ControlesControler.atualizarTVControll(controle['id'], controleState);
                                 },
                                 icon: Icon(
@@ -116,8 +116,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                               padding: EdgeInsets.symmetric(horizontal: 20),
                               child: IconButton(
                                 onPressed: () {
-                                  ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                                  controleState['comando'] = controleSamsung.vol_menos;
+                                  ControleTV controleTV = ControleTV(marca: controle['marca']);
+                                  controleState['comando'] = controleTV.vol_menos;
                                   ControlesControler.atualizarTVControll(controle['id'], controleState);
                                 },
                                 icon: Icon(
@@ -135,8 +135,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                                 padding: EdgeInsets.symmetric(vertical: 10),
                                 child: IconButton(
                                   onPressed: () {
-                                    ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                                    controleState['comando'] = controleSamsung.mute;
+                                    ControleTV controleTV = ControleTV(marca: controle['marca']);
+                                    controleState['comando'] = controleTV.mute;
                                     ControlesControler.atualizarTVControll(controle['id'], controleState);
                                   },
                                   icon: Icon(
@@ -150,8 +150,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                               padding: EdgeInsets.symmetric(vertical: 10),
                               child: IconButton(
                                 onPressed: () {
-                                  ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                                  controleState['comando'] = controleSamsung.home;
+                                  ControleTV controleTV = ControleTV(marca: controle['marca']);
+                                  controleState['comando'] = controleTV.home;
                                   ControlesControler.atualizarTVControll(controle['id'], controleState);
                                 },
                                 icon: Icon(
@@ -169,8 +169,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                               child: IconButton(
                                 onPressed: () {
-                                  ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                                  controleState['comando'] = controleSamsung.ch_mais;
+                                  ControleTV controleTV = ControleTV(marca: controle['marca']);
+                                  controleState['comando'] = controleTV.ch_mais;
                                   ControlesControler.atualizarTVControll(controle['id'], controleState);
                                 },
                                 icon: Icon(
@@ -191,8 +191,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                               padding: EdgeInsets.symmetric(horizontal: 20),
                               child: IconButton(
                                 onPressed: () {
-                                  ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                                  controleState['comando'] = controleSamsung.ch_menos;
+                                  ControleTV controleTV = ControleTV(marca: controle['marca']);
+                                  controleState['comando'] = controleTV.ch_menos;
                                   ControlesControler.atualizarTVControll(controle['id'], controleState);
                                 },
                                 icon: Icon(
@@ -213,8 +213,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(vertical: 20),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.settings;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.settings;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -228,8 +228,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(vertical: 20),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.seta_cima;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.seta_cima;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -243,8 +243,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(vertical: 20),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.conections;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.conections;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -263,8 +263,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.seta_esquerda;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.seta_esquerda;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -278,8 +278,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.seta_btnOK;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.seta_btnOK;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -293,8 +293,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(horizontal: 10),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.seta_direita;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.seta_direita;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -313,8 +313,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(vertical: 20),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.back;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.back;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -328,8 +328,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(vertical: 20),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.seta_baixo;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.seta_baixo;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(
@@ -343,8 +343,8 @@ class _DialogTVControllState extends State<DialogTVControll> {
                           padding: EdgeInsets.symmetric(vertical: 20),
                           child: IconButton(
                             onPressed: () {
-                              ControleTV controleSamsung = ControleTV(marca: controle['marca']);
-                              controleState['comando'] = controleSamsung.exit;
+                              ControleTV controleTV = ControleTV(marca: controle['marca']);
+                              controleState['comando'] = controleTV.exit;
                               ControlesControler.atualizarTVControll(controle['id'], controleState);
                             },
                             icon: Icon(

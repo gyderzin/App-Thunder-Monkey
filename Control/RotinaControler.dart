@@ -1,7 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:thunder_monkey_app/Control/DispositivoControler.dart';
-String urlBase = "http://192.168.100.89/API-ThuderMonkey/public/api";
+import 'package:thunder_monkey_app/Models/Conexao.dart';
+
+Conexao conexao = Conexao();
+String urlBase = conexao.urlBase;
 
 class RotinaControler {
 

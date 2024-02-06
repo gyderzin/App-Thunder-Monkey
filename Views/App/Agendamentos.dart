@@ -83,6 +83,16 @@ class _AgendamentosState extends State<Agendamentos> {
             });
   }
 
+  Future excluir_agendamento(id) async {
+    AgendamentoControler.excluir_agendamento(id).then((value) =>
+    {
+      setState(() {
+        agendamentosFuture = recuperarAgendamentos();
+      })
+    });
+  }
+
+
   Future editarAgendamento(idAgendamento, nome, hora, dias, circuitos) async {
     var horaSend = '${hora.hour}:${hora.minute.toString().padLeft(2, '0')}';
     var diasSend = dias.join(', ');

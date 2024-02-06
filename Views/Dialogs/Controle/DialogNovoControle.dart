@@ -23,6 +23,7 @@ class _DialogNovoControleState extends State<DialogNovoControle> {
     'Samsung',
     'Gree',
     'Panasonic',
+    'TV Box'
   ];
 
   String? tipoSelecionado;

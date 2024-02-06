@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:thunder_monkey_app/Control/DispositivoControler.dart';
+import 'package:thunder_monkey_app/Models/Conexao.dart';
 import 'package:thunder_monkey_app/Models/Rotinas.dart';
 import '../Models/Circuito.dart';
 
-String urlBase = "http://192.168.100.89/API-ThuderMonkey/public/api";
+Conexao conexao = Conexao();
+String urlBase = conexao.urlBase;
 
 class CircuitoControler {
   static Future<void> enviarCircuitos(circuitos, idDp) async {

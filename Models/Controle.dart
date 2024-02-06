@@ -54,24 +54,24 @@ class ControleTV {
       conections = "20DFD02F";
       back = "";
       exit = "";
-    } else {
+    } else if (marca.toLowerCase() == 'tv box') {
       // Define códigos padrão caso a marca não seja reconhecida
-      power = "";
-      vol_mais = "";
-      vol_menos = "";
+      power = "807F02FD";
+      vol_mais = "807F18E7";
+      vol_menos = "807F08F7";
       ch_mais = "";
       ch_menos = "";
-      seta_cima = "";
-      seta_baixo = "";
-      seta_esquerda = "";
-      seta_direita = "";
-      seta_btnOK = "";
-      mute = "";
-      home = "";
-      settings = "";
-      conections = "";
-      back = "";
-      exit = "";
+      seta_cima = "807F6897";
+      seta_baixo = "807F58A7";
+      seta_esquerda = "807F8A75";
+      seta_direita = "807F0AF5";
+      seta_btnOK = "807FC837";
+      mute = "807F827D";
+      home = "807F8877";
+      settings = "807FC23D";
+      conections = "807F32CD";
+      back = "807F42BD";
+      exit = "807F9867";
     }
   }
 }
